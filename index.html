@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Organisasi & Manajemen SMPN 1 Kandat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .card-hover:hover { transform: translateY(-4px); transition: all 0.2s ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <!-- Logo Resmi SMPN 1 Kandat -->
+                <div class="w-16 h-16 bg-white rounded-full p-1.5 flex items-center justify-center shadow-md shrink-0 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRESVnGGzgEIkf9q6nFxX3TJ2oCPb2g8wWhobdhB6didA&s" alt="Logo SMPN 1 Kandat" class="w-full h-full object-contain">
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold tracking-wide">SMP NEGERI 1 KANDAT</h1>
+                    <p class="text-xs text-blue-200">Dinas Pendidikan Kabupaten Kediri</p>
+                    <p class="text-xs text-amber-300 font-semibold mt-1">SiAP Inovatif (Berprestasi, Agamis, Peduli Lingkungan dan Inovatif)</p>
+                </div>
+            </div>
+            
+            <!-- Filter Search Bar -->
+            <div class="relative w-full md:w-72">
+                <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="Cari nama, jabatan, atau tugas..." 
+                    class="w-full pl-10 pr-4 py-2 rounded-full text-slate-800 bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 shadow-inner">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        
+        <!-- Banner Title -->
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-extrabold text-blue-900 uppercase tracking-tight">Struktur Organisasi Sekolah</h2>
+            <p class="text-slate-600 mt-2 font-medium">Bersama Mewujudkan Generasi Cerdas, Berkarakter, dan Berdaya Saing</p>
+            
+            <div class="flex justify-center items-center gap-6 mt-4 text-xs font-semibold">
+                <div class="flex items-center gap-2">
+                    <span class="w-8 h-1 bg-blue-900 inline-block"></span> Garis Komando
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-8 h-0 border-t-2 border-dashed border-slate-500 inline-block"></span> Garis Koordinasi
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 1: Komite & Dinas Pendidikan Kabupaten Kediri -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+            <div class="card-item bg-white border-l-4 border-blue-600 rounded-lg p-5 shadow-sm card-hover cursor-pointer" onclick="showModal('Komite Sekolah', 'Unsur Pertimbangan', 'Memberikan pertimbangan, masukan, serta penjaminan mutu kebijakan sekolah.', ['Pertimbangan program sekolah', 'Pengawasan pelayanan pendidikan', 'Pendukung sarana dan prasarana'])">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-users text-blue-600 text-2xl"></i>
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Lembaga Mitra</span>
+                        <h3 class="font-bold text-slate-900 text-lg">KOMITE SEKOLAH</h3>
+                        <p class="text-sm text-slate-500">(Unsur Pertimbangan)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-item bg-white border-l-4 border-blue-800 rounded-lg p-5 shadow-sm card-hover cursor-pointer" onclick="showModal('Dinas Pendidikan Kabupaten Kediri', 'Instansi Pembina', 'Instansi pembina teknis dan administratif penyelenggaraan pendidikan di Kabupaten Kediri.', ['Pembinaan manajerial & akademis', 'Pengawasan mutu pendidikan', 'Regulasi & administrasi daerah'])">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-building-columns text-blue-800 text-2xl"></i>
+                    <div>
+                        <span class="text-xs font-bold text-blue-800 uppercase tracking-wider">Pembina Wilayah</span>
+                        <h3 class="font-bold text-slate-900 text-lg">DINAS PENDIDIKAN KABUPATEN KEDIRI</h3>
+                        <p class="text-sm text-slate-500">(Instansi Pembina)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 2: Kepala Sekolah -->
+        <div class="flex justify-center mb-10">
+            <div class="card-item w-full max-w-md bg-amber-500 text-white rounded-xl shadow-xl p-6 text-center card-hover cursor-pointer relative overflow-hidden" onclick="showModal('Kepala Sekolah', 'Insiyah, S.Pd.', 'Pimpinan tertinggi sekolah yang bertanggung jawab atas pengelolaan teknis pendidikan, managerial, dan pengembangan sekolah.', ['Penanggung jawab utama sekolah', 'Supervisi & evaluasi kinerja', 'Pengambil keputusan strategis'])">
+                <div class="absolute -right-6 -bottom-6 text-amber-400 opacity-20">
+                    <i class="fa-solid fa-user-tie text-9xl"></i>
+                </div>
+                <span class="bg-amber-700 text-amber-100 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">Top Management</span>
+                <h3 class="text-2xl font-black mt-2">KEPALA SEKOLAH</h3>
+                <p class="text-xl font-bold text-slate-900 bg-white/90 py-1 px-4 rounded-lg mt-2 shadow-sm inline-block">Insiyah, S.Pd.</p>
+            </div>
+        </div>
+
+        <!-- Level 3: Wakil Kepala Sekolah & Tata Usaha -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mb-10">
+            <!-- Waka Akademik -->
+            <div class="card-item bg-white border-t-4 border-blue-600 rounded-lg shadow-sm p-4 card-hover cursor-pointer" onclick="showModal('Waka Akademik', 'Samiran, S.Pd.I.', 'Mengelola kurikulum dan kegiatan pembelajaran.', ['Perencanaan pembelajaran', 'Pelaksanaan kurikulum', 'Penilaian dan evaluasi', 'Pengembangan akademik'])">
+                <span class="text-xs font-bold text-blue-600 uppercase">Wakil Kepala</span>
+                <h4 class="font-bold text-slate-900 text-sm mt-1">WAKA AKADEMIK</h4>
+                <p class="text-xs font-semibold text-blue-900 mt-1 mb-3">Samiran, S.Pd.I.</p>
+                <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+                    <li>Perencanaan pembelajaran</li>
+                    <li>Pelaksanaan kurikulum</li>
+                    <li>Penilaian dan evaluasi</li>
+                </ul>
+            </div>
+
+            <!-- Waka Kesiswaan -->
+            <div class="card-item bg-white border-t-4 border-emerald-600 rounded-lg shadow-sm p-4 card-hover cursor-pointer" onclick="showModal('Waka Kesiswaan', 'Anang Sulistyo, S.Pd.', 'Mengelola kegiatan siswa dan pembentukan karakter.', ['Pembinaan peserta didik', 'Kegiatan ekstrakurikuler', 'Pembinaan karakter', 'Disiplin dan tata tertib'])">
+                <span class="text-xs font-bold text-emerald-600 uppercase">Wakil Kepala</span>
+                <h4 class="font-bold text-slate-900 text-sm mt-1">WAKA KESISWAAN</h4>
+                <p class="text-xs font-semibold text-emerald-900 mt-1 mb-3">Anang Sulistyo, S.Pd.</p>
+                <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+                    <li>Pembinaan peserta didik</li>
+                    <li>Kegiatan ekstrakurikuler</li>
+                    <li>Pembinaan karakter</li>
+                </ul>
+            </div>
+
+            <!-- Waka Sarpras -->
+            <div class="card-item bg-white border-t-4 border-orange-500 rounded-lg shadow-sm p-4 card-hover cursor-pointer" onclick="showModal('Waka Sarpras', 'Wanda Setiyawan, S.Pd.I.', 'Mengelola sarana, prasarana, serta aset sekolah.', ['Pengelolaan sarana prasarana', 'Pemeliharaan dan perawatan', 'Perencanaan pengadaan', 'Inventarisasi aset sekolah'])">
+                <span class="text-xs font-bold text-orange-500 uppercase">Wakil Kepala</span>
+                <h4 class="font-bold text-slate-900 text-sm mt-1">WAKA SARPRAS</h4>
+                <p class="text-xs font-semibold text-orange-900 mt-1 mb-3">Wanda Setiyawan, S.Pd.I.</p>
+                <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+                    <li>Pengelolaan sarana prasarana</li>
+                    <li>Pemeliharaan & perawatan</li>
+                    <li>Inventarisasi aset</li>
+                </ul>
+            </div>
+
+            <!-- Waka Humas -->
+            <div class="card-item bg-white border-t-4 border-purple-600 rounded-lg shadow-sm p-4 card-hover cursor-pointer" onclick="showModal('Waka Humas', 'Setiadi, S.Pd., Gr.', 'Mengelola hubungan kerja sama dan kemitraan publik.', ['Hubungan masyarakat', 'Kemitraan dan kerja sama', 'Publikasi dan informasi', 'Pengembangan citra sekolah'])">
+                <span class="text-xs font-bold text-purple-600 uppercase">Wakil Kepala</span>
+                <h4 class="font-bold text-slate-900 text-sm mt-1">WAKA HUMAS</h4>
+                <p class="text-xs font-semibold text-purple-900 mt-1 mb-3">Setiadi, S.Pd., Gr.</p>
+                <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+                    <li>Hubungan masyarakat</li>
+                    <li>Kemitraan & kerja sama</li>
+                    <li>Publikasi & informasi</li>
+                </ul>
+            </div>
+
+            <!-- Kepala Tata Usaha -->
+            <div class="card-item bg-white border-t-4 border-teal-600 rounded-lg shadow-sm p-4 card-hover cursor-pointer" onclick="showModal('Kepala Tata Usaha', 'Hanikatusholekah', 'Bertanggung jawab atas administrasi ketatausahaan sekolah.', ['Administrasi ketatausahaan', 'Pengelolaan arsip dan surat', 'Pelayanan administrasi', 'Koordinasi tenaga kependidikan'])">
+                <span class="text-xs font-bold text-teal-600 uppercase">Tata Usaha</span>
+                <h4 class="font-bold text-slate-900 text-sm mt-1">KEPALA TATA USAHA</h4>
+                <p class="text-xs font-semibold text-teal-900 mt-1 mb-3">Hanikatusholekah</p>
+                <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+                    <li>Administrasi ketatausahaan</li>
+                    <li>Pengelolaan arsip & surat</li>
+                    <li>Pelayanan administrasi</li>
+                </ul>
+            </div>
+
+            <!-- Bendahara BOS -->
+            <div class="card-item bg-white border-t-4 border-red-600 rounded-lg shadow-sm p-4 card-hover cursor-pointer" onclick="showModal('Bendahara BOS', 'Anis Alfiani Farida, S.Pd.', 'Pengelolaan keuangan dan operasional dana BOS sekolah.', ['Pengelolaan dana BOS', 'Pembukuan dan laporan', 'Pertanggungjawaban', 'Koordinasi keuangan'])">
+                <span class="text-xs font-bold text-red-600 uppercase">Keuangan</span>
+                <h4 class="font-bold text-slate-900 text-sm mt-1">BENDAHARA BOS</h4>
+                <p class="text-xs font-semibold text-red-900 mt-1 mb-3">Anis Alfiani Farida, S.Pd.</p>
+                <ul class="text-xs text-slate-600 space-y-1 list-disc pl-4">
+                    <li>Pengelolaan dana BOS</li>
+                    <li>Pembukuan & laporan</li>
+                    <li>Pertanggungjawaban</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Level 4: Pelaksana Pengajaran & Sub Staf TU -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
+            <div class="card-item bg-amber-50 border border-amber-200 rounded-lg p-5 shadow-sm text-center card-hover cursor-pointer" onclick="showModal('Guru Mata Pelajaran', 'Tenaga Pendidik', 'Melaksanakan proses kegiatan belajar mengajar sesuai kurikulum.', ['Penyusunan modul/RPP', 'Pengajaran di kelas', 'Evaluasi nilai harian & ujian'])">
+                <i class="fa-solid fa-chalkboard-user text-amber-600 text-3xl mb-2"></i>
+                <h4 class="font-bold text-slate-900">GURU MATA PELAJARAN</h4>
+                <p class="text-xs text-slate-500 mt-1">Pelaksana Pengajaran Akademik</p>
+            </div>
+
+            <div class="card-item bg-blue-50 border border-blue-200 rounded-lg p-5 shadow-sm text-center card-hover cursor-pointer" onclick="showModal('Wali Kelas', 'Tim Wali Kelas', 'Mendampingi serta mengawasi perkembangan akademik dan perilaku siswa per kelas.', ['Pengelolaan kelas', 'Laporan hasil belajar (Rapor)', 'Komunikasi dengan orang tua'])">
+                <i class="fa-solid fa-people-roof text-blue-600 text-3xl mb-2"></i>
+                <h4 class="font-bold text-slate-900">WALI KELAS</h4>
+                <p class="text-xs text-slate-500 mt-1">Pembina Langsung Kelas</p>
+            </div>
+
+            <div class="card-item bg-emerald-50 border border-emerald-200 rounded-lg p-5 shadow-sm text-center card-hover cursor-pointer" onclick="showModal('Pembina Ekstrakurikuler', 'Tim Pembina Unit Kegiatan', 'Mengembangkan minat, bakat, serta potensi non-akademik siswa.', ['Pelatihan rutin ekskul', 'Persiapan kompetisi/lomba', 'Pengembangan bakat siswa'])">
+                <i class="fa-solid fa-person-running text-emerald-600 text-3xl mb-2"></i>
+                <h4 class="font-bold text-slate-900">PEMBINA EKSKUL</h4>
+                <p class="text-xs text-slate-500 mt-1">Pengembangan Minat & Bakat</p>
+            </div>
+
+            <div class="card-item bg-teal-50 border border-teal-200 rounded-lg p-5 shadow-sm text-center card-hover cursor-pointer" onclick="showModal('Staff Tata Usaha', 'Olivia Ebriza Julyan', 'Mendukung operasional harian dan administrasi teknis sekolah.', ['Pengadministrasian', 'Layanan surat menyurat', 'Dukungan operasional'])">
+                <i class="fa-solid fa-clipboard-list text-teal-600 text-3xl mb-2"></i>
+                <h4 class="font-bold text-slate-900">STAFF TATA USAHA</h4>
+                <p class="text-xs font-semibold text-teal-800">Olivia Ebriza Julyan</p>
+                <p class="text-xs text-slate-500 mt-1">Operasional & Administrasi</p>
+            </div>
+        </div>
+
+        <!-- Level 5: Siswa -->
+        <div class="card-item bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl p-6 text-center shadow-lg card-hover cursor-pointer max-w-xl mx-auto mb-16" onclick="showModal('Siswa / Peserta Didik', 'Generasi SPENSAKA', 'Subjek utama layanan pendidikan di SMPN 1 Kandat.', ['Mengikuti pembelajaran', 'Mengembangkan karakter & minat', 'Menjaga nama baik sekolah'])">
+            <i class="fa-solid fa-graduation-cap text-4xl mb-2"></i>
+            <h3 class="text-2xl font-black">SISWA / PESERTA DIDIK</h3>
+            <p class="text-xs text-red-100 mt-1">Fokus Utama Layanan Pendidikan & Pembinaan Karakter</p>
+        </div>
+
+        <!-- MANAJEMEN INPUT & EDIT GURU WITH PASSWORD -->
+        <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-md mb-12">
+            <div class="border-b border-slate-200 pb-4 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <div>
+                    <h3 class="text-xl font-bold text-blue-900 flex items-center gap-2">
+                        <i class="fa-solid fa-user-pen text-amber-500"></i>
+                        Manajemen Data Guru & Mata Pelajaran
+                    </h3>
+                    <p class="text-xs text-slate-500">Tambah, Edit, dan Kelola daftar guru SMPN 1 Kandat (Diperlukan password: <span class="font-mono text-red-600 font-bold">spensaka</span>)</p>
+                </div>
+                <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-3 py-1 rounded-full w-fit flex items-center gap-1">
+                    <i class="fa-solid fa-lock"></i> Fitur Terproteksi
+                </span>
+            </div>
+
+            <!-- Form Input Guru -->
+            <form id="teacherForm" onsubmit="addTeacher(event)" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama Guru & Gelar</label>
+                    <input type="text" id="teacherName" required placeholder="Contoh: Samiran, S.Pd.I." class="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Mata Pelajaran</label>
+                    <input type="text" id="teacherSubject" required placeholder="Contoh: Pendidikan Agama Islam" class="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Kelas / Keterangan</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="teacherClass" placeholder="Contoh: Kelas 7, 8 & 9" class="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                        <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-lg text-sm transition-all flex items-center gap-1 shrink-0 shadow-sm">
+                            <i class="fa-solid fa-plus"></i> Tambah
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Tabel Daftar Guru -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border-collapse">
+                    <thead>
+                        <tr class="bg-blue-900 text-white text-xs uppercase tracking-wider">
+                            <th class="p-3 rounded-tl-lg">No</th>
+                            <th class="p-3">Nama Guru</th>
+                            <th class="p-3">Mata Pelajaran</th>
+                            <th class="p-3">Kelas / Keterangan</th>
+                            <th class="p-3 text-center rounded-tr-lg">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="teacherTableBody" class="divide-y divide-slate-200">
+                        <!-- Data guru dirender via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Edit Guru -->
+    <div id="editTeacherModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 relative">
+            <button onclick="closeEditModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl font-bold">&times;</button>
+            <h3 class="text-lg font-bold text-blue-900 border-b border-slate-200 pb-2 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-pen-to-square text-amber-500"></i> Edit Data Guru
+            </h3>
+            
+            <form id="editTeacherForm" onsubmit="saveTeacherEdit(event)" class="space-y-4">
+                <input type="hidden" id="editTeacherIndex">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama Guru & Gelar</label>
+                    <input type="text" id="editTeacherName" required class="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Mata Pelajaran</label>
+                    <input type="text" id="editTeacherSubject" required class="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Kelas / Keterangan</label>
+                    <input type="text" id="editTeacherClass" class="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeEditModal()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-sm rounded-lg font-medium">Batal</button>
+                    <button type="submit" class="px-4 py-2 bg-blue-900 hover:bg-blue-800 text-white text-sm rounded-lg font-bold">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Detail View -->
+    <div id="detailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full p-6 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl font-bold">&times;</button>
+            <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                <div class="p-3 bg-blue-100 text-blue-900 rounded-lg">
+                    <i class="fa-solid fa-id-card text-2xl"></i>
+                </div>
+                <div>
+                    <h3 id="modalRole" class="text-xl font-bold text-slate-900"></h3>
+                    <p id="modalName" class="text-sm font-semibold text-blue-700"></p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h4 class="text-xs font-bold uppercase text-slate-400">Deskripsi Peran</h4>
+                <p id="modalDesc" class="text-sm text-slate-700 mt-1"></p>
+            </div>
+            <div class="mt-4">
+                <h4 class="text-xs font-bold uppercase text-slate-400">Tugas & Responsibilitas</h4>
+                <ul id="modalTasks" class="mt-2 text-sm text-slate-700 space-y-1 list-disc pl-5"></ul>
+            </div>
+            <div class="mt-6 text-right">
+                <button onclick="closeModal()" class="bg-blue-900 hover:bg-blue-800 text-white text-sm font-medium px-5 py-2 rounded-lg transition-colors">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-900 text-slate-300 mt-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+            <div>
+                <h4 class="font-bold text-white text-base mb-2">SMP NEGERI 1 KANDAT</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Jl. Raya Kandat No.1 Galuhan, Kandat, Kabupaten Kediri
+                </p>
+                <p class="text-xs text-amber-400 italic mt-2">"Bersama untuk SPENSAKA yang Lebih Baik"</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-base mb-2">Media Sosial Resmi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li class="flex items-center gap-2">
+                        <i class="fa-globe text-blue-400"></i>
+                        <a href="http://smpnegeri1kandat.sch.id" target="_blank" class="hover:underline">smpnegeri1kandat.sch.id</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-brands fa-instagram text-pink-400"></i>
+                        <span>smpn1.kandat.official</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-brands fa-tiktok text-slate-200"></i>
+                        <span>smpn1kandat.</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-base mb-2">Prinsip Kerja (SiAP Inovatif)</h4>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <span class="bg-slate-800 px-2 py-1 rounded text-center">Berprestasi</span>
+                    <span class="bg-slate-800 px-2 py-1 rounded text-center">Agamis</span>
+                    <span class="bg-slate-800 px-2 py-1 rounded text-center">Peduli Lingkungan</span>
+                    <span class="bg-slate-800 px-2 py-1 rounded text-center">Inovatif</span>
+                </div>
+            </div>
+        </div>
+        <div class="bg-slate-950 py-3 text-center text-xs text-slate-500">
+            &copy; 2026 SMPN 1 Kandat - Dinas Pendidikan Kabupaten Kediri.
+        </div>
+    </footer>
+
+    <!-- Interactive JS Script -->
+    <script>
+        const PASSWORD_ADMIN = "spensaka";
+
+        // Data Awal Guru
+        let teachers = JSON.parse(localStorage.getItem('spensaka_teachers')) || [
+            { name: "Samiran, S.Pd.I.", subject: "Pendidikan Agama Islam", classInfo: "Kelas 7 & 8" },
+            { name: "Anang Sulistyo, S.Pd.", subject: "Pendidikan Jasmani & Olahraga", classInfo: "Kelas 7, 8, 9" },
+            { name: "Wanda Setiyawan, S.Pd.I.", subject: "Pendidikan Agama Islam / Mulok", classInfo: "Kelas 8 & 9" },
+            { name: "Setiadi, S.Pd., Gr.", subject: "Bahasa Indonesia", classInfo: "Kelas 7 & 9" },
+            { name: "Anis Alfiani Farida, S.Pd.", subject: "Matematika", classInfo: "Kelas 8 & 9" }
+        ];
+
+        document.addEventListener('DOMContentLoaded', renderTeachers);
+
+        // Fungsi Autentikasi Password
+        function verifyPassword() {
+            const inputPass = prompt("Masukkan Kata Sandi Admin untuk mengubah data:");
+            if (inputPass === null) return false; // Dibatalkan
+            if (inputPass === PASSWORD_ADMIN) {
+                return true;
+            } else {
+                alert("Kata sandi salah! Perubahan dibatalkan.");
+                return false;
+            }
+        }
+
+        function renderTeachers() {
+            const tbody = document.getElementById('teacherTableBody');
+            tbody.innerHTML = '';
+
+            if (teachers.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-400 text-xs">Belum ada data guru. Silakan tambahkan pada form di atas.</td></tr>`;
+                return;
+            }
+
+            teachers.forEach((t, index) => {
+                const tr = document.createElement('tr');
+                tr.className = index % 2 === 0 ? 'bg-white hover:bg-slate-50' : 'bg-slate-50/50 hover:bg-slate-100';
+                tr.innerHTML = `
+                    <td class="p-3 font-semibold text-slate-600">${index + 1}</td>
+                    <td class="p-3 font-bold text-slate-900">${t.name}</td>
+                    <td class="p-3 font-medium text-blue-800">${t.subject}</td>
+                    <td class="p-3 text-slate-600">${t.classInfo || '-'}</td>
+                    <td class="p-3 text-center flex justify-center gap-2">
+                        <button onclick="openEditTeacherModal(${index})" class="text-amber-600 hover:text-amber-800 font-bold px-2 py-1 rounded text-xs transition-colors" title="Edit Data">
+                            <i class="fa-solid fa-pen-to-square"></i> Edit
+                        </button>
+                        <button onclick="deleteTeacher(${index})" class="text-red-500 hover:text-red-700 font-bold px-2 py-1 rounded text-xs transition-colors" title="Hapus Data">
+                            <i class="fa-solid fa-trash"></i> Hapus
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function addTeacher(event) {
+            event.preventDefault();
+            
+            // Verifikasi Password
+            if (!verifyPassword()) return;
+
+            const name = document.getElementById('teacherName').value.trim();
+            const subject = document.getElementById('teacherSubject').value.trim();
+            const classInfo = document.getElementById('teacherClass').value.trim();
+
+            if (name && subject) {
+                teachers.push({ name, subject, classInfo });
+                saveAndRefresh();
+                document.getElementById('teacherForm').reset();
+                alert("Data guru berhasil ditambahkan!");
+            }
+        }
+
+        function openEditTeacherModal(index) {
+            // Verifikasi Password
+            if (!verifyPassword()) return;
+
+            const t = teachers[index];
+            document.getElementById('editTeacherIndex').value = index;
+            document.getElementById('editTeacherName').value = t.name;
+            document.getElementById('editTeacherSubject').value = t.subject;
+            document.getElementById('editTeacherClass').value = t.classInfo || '';
+
+            const modal = document.getElementById('editTeacherModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function saveTeacherEdit(event) {
+            event.preventDefault();
+            const index = document.getElementById('editTeacherIndex').value;
+            const name = document.getElementById('editTeacherName').value.trim();
+            const subject = document.getElementById('editTeacherSubject').value.trim();
+            const classInfo = document.getElementById('editTeacherClass').value.trim();
+
+            if (index !== "" && name && subject) {
+                teachers[index] = { name, subject, classInfo };
+                saveAndRefresh();
+                closeEditModal();
+                alert("Data guru berhasil diperbarui!");
+            }
+        }
+
+        function closeEditModal() {
+            const modal = document.getElementById('editTeacherModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function deleteTeacher(index) {
+            // Verifikasi Password
+            if (!verifyPassword()) return;
+
+            if (confirm(`Apakah Anda yakin ingin menghapus data ${teachers[index].name}?`)) {
+                teachers.splice(index, 1);
+                saveAndRefresh();
+                alert("Data guru berhasil dihapus!");
+            }
+        }
+
+        function saveAndRefresh() {
+            localStorage.setItem('spensaka_teachers', JSON.stringify(teachers));
+            renderTeachers();
+        }
+
+        function filterCards() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card-item');
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        function showModal(role, name, desc, tasks) {
+            document.getElementById('modalRole').innerText = role;
+            document.getElementById('modalName').innerText = name;
+            document.getElementById('modalDesc').innerText = desc;
+            
+            const tasksList = document.getElementById('modalTasks');
+            tasksList.innerHTML = '';
+            tasks.forEach(task => {
+                const li = document.createElement('li');
+                li.innerText = task;
+                tasksList.appendChild(li);
+            });
+
+            const modal = document.getElementById('detailModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('detailModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
